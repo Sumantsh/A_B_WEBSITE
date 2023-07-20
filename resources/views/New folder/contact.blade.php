@@ -1,0 +1,5 @@
+@include('header')
+
+<h1>Contact Page</h1>
+
+@include('footer')
