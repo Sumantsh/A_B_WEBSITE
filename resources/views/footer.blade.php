@@ -2,7 +2,7 @@
 
     <div id="flogo">
       <a href="index.html">
-        <img src="{{asset (('img/cropped-EDLifecare-logo.png'')}}" class="flogo" alt="logo">
+        <img src="{{asset ('img/cropped-EDLifecare-logo.png')}}" class="flogo" alt="logo">
       </a>
     </div>
 
@@ -38,8 +38,8 @@
   
 <script src=" https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-<script src="{{asset ('js/swiperscript.js')}}"></script>
-<script src="{{ asset ('js/cartwindow.js')}}"></script>
+<script src="{{ asset('js/swiperscript.js') }}"></script>
+<script src="{{ asset('js/cartwindow.js') }}"></script>
 
 </body>
 </html>
