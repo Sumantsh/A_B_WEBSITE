@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> 
     <link  rel="stylesheet"  href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
     <link rel="stylesheet" href="{{ asset ('css/style.css')}}">
-    <link rel="stylesheet" href="{{asset ('css/mediaquery.css')}}">
-    <link rel="stylesheet" href="{{asset ('css/swiperstyle.css')}}">
+    <link rel="stylesheet" href="{{ asset ('css/mediaquery.css')}}">
+    <link rel="stylesheet" href="{{ asset ('css/swiperstyle.css')}}">
     <title>Document</title>
 </head>
 
@@ -37,7 +37,7 @@
        
 
         <div class="scnd" >
-           <a href="index.html"> <img src="./static/img/logo.png"  alt=""> </a>
+           <a href="/"> <img src="{{ asset ('/img/logo.png')}}"  alt=""> </a>
 
            <div id="menubar">
             <i class="fa-solid fa-align-justify menuline" ></i>
@@ -47,7 +47,7 @@
         </div>
 
         <div class="third">
-            <img src="./static/img/visa.png" width="40%" alt="">
+            <img src="{{ asset ('/img/visa.png')}}" width="45%" alt="">
             <div id="cart">
                 <a href="">view plus</a>
                 <a href="">track order</a>
@@ -70,12 +70,12 @@
         <div id="menu">
 
             <div class="navlink">
-            <a href="about.html">About us</a>
-            <a href="delivery.html">Delivery Proof</a>
-            <a href="sample.html">Free Sample</a>
-            <a href="shipping.html">Shipping</a>
-            <a href="policies.html">Policies</a>
-            <a href="fq.html">F&Q</a>
+            <a href="{{url('about')}}">About us</a>
+            <a href="{{url('delivery')}}">Delivery Proof</a>
+            <a href="{{url('sample')}}">Free Sample</a>
+            <a href="{{url('shipping')}}">Shipping</a>
+            <a href="{{url('policies')}}">Policies</a>
+            <a href="{{url('fq')}}">F&Q</a>
             </div>
 
             <div id="search_bar">
@@ -86,7 +86,7 @@
 
     <nav id="nav2">
       <div class="navlink2">
-        <a href="about.html">About us</a>
+      <a href="{{url('about')}}">About us</a>
         <a href="fq.html">F&Q</a>
         <a href="sample.html">Free Sample</a>
         <a href="policies.html">Policies</a>

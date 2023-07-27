@@ -1,4 +1,4 @@
-
+@include('header')
     <section id="section">
 
       <div class="swiper-container">
@@ -8,15 +8,15 @@
         <div class="swiper-wrapper">
       
           <div class="slider swiper-slide slider1 ">
-            <img src="/static/img/slider/one.jpg" width="100%" alt="">
+            <img src="{{ asset('img/slider/one.jpg')}}" width="100%" alt="">
           </div>
 
           <div class="slider swiper-slide slider2 ">
-            <img src="/static/img/slider/three.jpg" width="100%" alt="">
+            <img src="{{ asset('img/slider/three.jpg')}}" width="100%" alt="">
           </div>
 
           <div class="slider swiper-slide slider3 ">
-            <img src="/static/img/slider/two (1).jpg" width="100%" alt="">
+            <img src="{{ asset ('/img/slider/two (1).jpg')}}" width="100%" alt="">
           </div>
         
         </div>
@@ -40,11 +40,11 @@
 
              <center>
              <div style="display: flex; flex-direction: column; align-items: center;">
-              <img src="./static/img/Screenshot_2022-10-02_at_11.52.57_PM-removebg-preview.png" width="90%" alt="">
+              <img src="{{ asset ('/img/Screenshot_2022-10-02_at_11.52.57_PM-removebg-preview.png')}}" width="90%" alt="">
               <div style="width: 50%; height: 1px; margin: 7% 0px; background-color: rgb(0, 0, 0); text-align: center;"></div>
-              <img src="./static/img/s-l400.jpeg" width="70%" alt="">
+              <img src="{{ asset ('img/s-l400.jpeg')}}" width="70%" alt="">
               <div style="width: 50%; height: 1px; margin: 10% 0px; background-color: rgb(0, 0, 0); text-align: center;"></div>
-              <img src="./static/img/247.png" width="30%" alt="">
+              <img src="{{ asset ('img/247.png')}}" width="30%" alt="">
               <div style="width: 50%; height: 1px; margin: 10% 0px; background-color: rgb(0, 0, 0); text-align: center;"></div>
               <p style="font-family: robotsan;">login/register</p>
             </div>
@@ -84,7 +84,7 @@
              <div style="width: 50%; height: 1px; margin: 10% 0px; background-color: rgb(0, 0, 0); text-align: center;"></div>
 
              <a href="index.html" style="width: 90%;">
-               <img src="./static/img/cropped-EDLifecare-logo.png" width="90%" alt="">
+               <img src="{{ asset ('img/cropped-EDLifecare-logo.png')}}" width="90%" alt="">
              </a>
 
            </center>
@@ -98,7 +98,7 @@
              <div id="productcard" >
 
                 <div class="productimg"  >
-                 <img src="/static/img/products/Viagra.jpg" alt="">
+                 <img src="{{ asset ('img/products/Viagra.jpg')}}" alt="">
                  <div class="sale">SALE!</div>
                 </div>
 
@@ -112,7 +112,7 @@
                 <p>$43.44 - $343.70</p>
               </div>
 
-              <a href="Productspage.html" id="buybutton" >Select options</a>
+              <a href="productspage" id="buybutton" >Select options</a>
 
 
 
@@ -122,7 +122,7 @@
              <div id="productcard">
 
               <div class="productimg"  >
-                <img src="/static/img/products/Viagra-–-professional.jpg"  alt="">
+                <img src="{{ asset ('img/products/Viagra-–-professional.jpg')}}"  alt="">
                 <div class="sale">SALE!</div>
               </div>
 
@@ -142,7 +142,7 @@
              <div id="productcard">
 
               <div class="productimg"  >
-              <img src="/static/img/products/Cialis.jpg"  alt="">
+              <img src="{{ asset ('img/products/Cialis.jpg')}}"  alt="">
               <div class="sale">SALE!</div>
             </div>
 
@@ -168,7 +168,7 @@
 
            <div id="productcard" >
             <div class="productimg"  >
-              <img src="/static/img/products/Viagra-With-Dapoxetine.jpg" alt="">
+              <img src="{{ asset ('img/products/Viagra-With-Dapoxetine.jpg" alt="">
               <div class="sale" >SALE!</div>
             </div>
 
@@ -563,5 +563,5 @@
 
     </section>
 
-@include("footer.php")
+@include("footer")
    

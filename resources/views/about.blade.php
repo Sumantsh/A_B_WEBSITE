@@ -1,4 +1,4 @@
-  @include('header')
+  @include("header")
     <section id="section">
 
       <div id="aboutsection">
@@ -8,7 +8,7 @@
       <h2 style="text-align: center; font-family: robotsan, sans-serif; font-weight: 600; font-size: 21px; color:rgba(0, 0, 0,.8);   margin-top: 8%;">About us</h2>
 
       <div id="aboutimg" >
-        <img src="/static/img/aboutimg.jpg" alt="">
+        <img src="{{ asset('/img/aboutimg.jpg')}}" alt="">
       </div>
 
       <div class="pre">
@@ -87,4 +87,4 @@
 
     </section>
 
-@include('footer')
+  @include("footer")
