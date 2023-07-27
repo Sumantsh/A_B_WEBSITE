@@ -1,4 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 @import url("/static/css/mediaquery.css");
+
 
 :root {
     --swiper-navigation-size: 25px;
@@ -22,6 +25,7 @@
     text-decoration: none;
     list-style: none;
     box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
     
 }
 
@@ -31,6 +35,7 @@ body {
 
 header {
     width: 100%;
+    font-family: 'Montserrat', sans-serif;
 
 }
 
