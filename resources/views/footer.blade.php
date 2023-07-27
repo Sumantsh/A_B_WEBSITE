@@ -2,7 +2,7 @@
 
     <div id="flogo">
       <a href="index.html">
-        <img src="{{asset (('img/cropped-EDLifecare-logo.png'')}}" class="flogo" alt="logo">
+        <img src="{{asset ('img/cropped-EDLifecare-logo.png')}}" class="flogo" alt="logo">
       </a>
     </div>
 
