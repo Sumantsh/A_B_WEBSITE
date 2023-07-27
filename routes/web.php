@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\Product;
+use Dotenv\Store\File\Reader;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Log;
 
 /*
 |--------------------------------------------------------------------------
@@ -59,6 +63,30 @@ Route::get('/fq', function () {
     return view('fq');
 });
 
-Route::group(['prefix' => 'admin'], function () {
-    Voyager::routes();
-});
+
+
+
+Route::get("/add", function() {
+    $jsonFile = file_get_contents(storage_path("json/product.json"));
+    $data = json_decode($jsonFile, true);
+
+
+    foreach ($data as $item) {
+        Product::create([
+            'prd_name' => $item['prd_name'],
+            'prd_dis' => $item['prd_dis'],
+            "prd_image" => $item['prd_image'],
+            'prd_min_price' => $item['prd_min_price'],
+            "prd_max_price" => $item['prd_max_price']
+        ]);
+    }
+
+    echo "Okay";
+})
+
+
+// Route::group(['prefix' => 'admin'], function () {
+//     Voyager::routes();
+// });
+
+?>
