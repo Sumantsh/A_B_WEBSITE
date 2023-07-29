@@ -59,7 +59,7 @@
           <div class="firstbox">
             <div class="icon">
               <i class="fa-regular fa-copy"></i>           
-             </div>
+            </div>
             <h2>Highest Quality Generic Drugs</h2>
             <p>2 pills of Viagra 100 mg/Cialis 20mg/Levitra 20 mg are available with every order FOR FREE.</p>
           </div>

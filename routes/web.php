@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Product;
 use Dotenv\Store\File\Reader;
@@ -17,15 +18,7 @@ use Illuminate\Support\Facades\Log;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-Route::get('', function () {
-    return view('home');
-});
-
-
+Route::get("", [ProductController::class, 'index']);
 
 Route::get('about', function () {
     return view('about');
@@ -47,10 +40,6 @@ Route::get('shipping', function () {
     return view('shipping');
 });
 
-Route::get('productspage', function () {
-    return view('productspage');
-});
-
 Route::get('/sample', function () {
     return view('sample');
 });
@@ -62,6 +51,11 @@ Route::get('/policies', function () {
 Route::get('/fq', function () {
     return view('fq');
 });
+
+
+
+
+// Route::get("/singleproduct/{listing}", [ProductController::class, 'show']);
 
 
 

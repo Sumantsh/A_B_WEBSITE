@@ -19,7 +19,7 @@
 
         <div class="first">
             <h2 class="time">24/7 Customer Support </h2>
-           
+
             <div class="call leftsec">
                 <i class="fa-solid fa-phone" ></i>
                 <a href="tel:1886962118">+1886962118</a>
@@ -34,12 +34,11 @@
             </div>
         </div>
 
-       
 
         <div class="scnd" >
-           <a href="/"> <img src="{{ asset ('/img/logo.png')}}"  alt=""> </a>
+          <a href="/"> <img src="{{ asset ('/img/logo.png')}}"  alt=""> </a>
 
-           <div id="menubar">
+          <div id="menubar">
             <i class="fa-solid fa-align-justify menuline" ></i>
             <i class="fa-regular fa-rectangle-xmark closemenu" ></i>
           </div>

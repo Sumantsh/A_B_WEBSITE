@@ -36,7 +36,7 @@
     <div id="afterslider">
         <div id="productwrapper">
             <div id="leftsideoffer">
-                <center>
+                <div>
                     <div style="display: flex; flex-direction: column; align-items: center;">
                         <img src="{{ asset('/img/Screenshot_2022-10-02_at_11.52.57_PM-removebg-preview.png') }}"
                             width="90%" alt="">
@@ -96,13 +96,39 @@
                     <a href="index.html" style="width: 90%;">
                         <img src="{{ asset('img/cropped-EDLifecare-logo.png') }}" width="90%" alt="">
                     </a>
-                </center>
+                </div>
 
             </div>
 
             <div id="rightsideproduct">
 
-                <div class="row row1">
+                @foreach ($products as $product)
+                    <div class="productcard">
+                        <div class="productimg">
+                            <img src="{{ asset ($product->prd_image) }}" alt="">
+                            <div class="sale">SALE!</div>
+                        </div>
+
+                        <div class="discription">
+                            {{-- <p> <span> Brand Viagra,</span> <span>Viagra,</span> <span>Viagra – professional,</span>
+                                <span>Viagra Plus</span></p> --}}
+                                <p>{{$product->prd_dis}}</p>
+                        </div>
+
+                        <div class="productname">{{$product->prd_name}}</div>
+
+                        <div class="price"
+                            style="margin-top: 10%; color: #57BF6D; font-size: 18px; font-family: robotsan; ">
+                            <p>${{$product->prd_min_price}} - ${{$product->prd_max_price}}</p>
+                        </div>
+
+                        <a href="Productspage.html" id="buybutton">Select options</a>
+                    </div>
+                @endforeach
+                
+
+
+                {{-- <div class="row row1">
 
                     <div id="productcard">
 
@@ -152,34 +178,13 @@
                         <a href="Productspage.html" id="buybutton"> Select options</a>
                     </div>
 
-                    <div id="productcard">
+                    
 
-                        <div class="productimg">
-                            <img src="{{ asset('img/products/Cialis.jpg') }}" alt="">
-                            <div class="sale">SALE!</div>
-                        </div>
-
-                        <div class="discription">
-                            <p> <span> Brand Viagra,</span> <span>Viagra,</span> <span>Viagra – professional,</span>
-                                <span>Viagra Plus</span></p>
-                        </div>
-
-                        <div class="productname">Cialis</div>
-
-                        <div class="price"
-                            style="margin-top: 10%; color: #57BF6D; font-size: 18px; font-family: robotsan; ">
-                            <p>$49.50 - $343.70</p>
-                        </div>
-
-                        <a href="Productspage.html" id="buybutton">Select options</a>
-
-                    </div>
-
-                </div>
+                </div> --}}
 
 
 
-                <div class="row row2">
+                {{-- <div class="row row2">
 
                     <div id="productcard">
                         <div class="productimg">
@@ -244,9 +249,9 @@
                         <a href="Productspage.html" id="buybutton"> Select options</a>
                     </div>
 
-                </div>
+                </div> --}}
 
-                <div class="row row3">
+                {{-- <div class="row row3">
 
                     <div id="productcard">
                         <div class="productimg">
@@ -311,9 +316,9 @@
                         <a href="Productspage.html" id="buybutton"> Select options</a>
                     </div>
 
-                </div>
+                </div> --}}
 
-                <div class="row row4">
+                {{-- <div class="row row4">
 
                     <div id="productcard">
                         <div class="productimg">
@@ -378,10 +383,10 @@
                         <a href="Productspage.html" id="buybutton"> Select options</a>
                     </div>
 
-                </div>
+                </div> --}}
 
 
-                <div class="row row5">
+                {{-- <div class="row row5">
 
                     <div id="productcard">
                         <div class="productimg">
@@ -446,9 +451,9 @@
                         <a href="Productview" id="buybutton"> Select options</a>
                     </div>
 
-                </div>
+                </div> --}}
 
-                <div class="row row6">
+                {{-- <div class="row row6">
 
                     <div id="productcard">
                         <div class="productimg">
@@ -512,9 +517,9 @@
 
                         <a href="Productspage.html" id="buybutton"> Select options</a>
                     </div>
-                </div>
+                </div> --}}
 
-                <div class="row row7">
+                {{-- <div class="row row7">
 
                     <div id="productcard">
                         <div class="productimg">
@@ -581,9 +586,9 @@
                         <a href="Productspage.html" id="buybutton"> Select options</a>
                     </div>
 
-                </div>
+                </div> --}}
 
-                <div class="row row8">
+                {{-- <div class="row row8">
 
                     <div id="productcard" style="margin-bottom: 2%">
                         <div class="productimg">
@@ -605,7 +610,7 @@
 
                         <a href="Productspage.html" id="buybutton"> Select options</a>
                     </div>
-                </div>
+                </div> --}}
 
             </div>
         </div>
