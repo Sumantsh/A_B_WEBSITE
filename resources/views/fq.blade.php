@@ -16,7 +16,7 @@
       <div  class=" submit submit1 fq">
 
         <div id="salogan">
-           <h2 style="font-family: robotsan, sans-serif; font-size: 16px;">DO YOU SELL BRAND MEDICINES OR GENERIC PILLS?</h2> 
+          <h2 style="font-family: robotsan, sans-serif; font-size: 16px;">DO YOU SELL BRAND MEDICINES OR GENERIC PILLS?</h2> 
           <span class="rightarrow rightarrow1 "><i class="fa-solid fa-caret-right"></i></span> 
           <span class="uparrow uparrow1"><i class="fa-solid fa-caret-up"></i></span>
         </div>
