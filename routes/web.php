@@ -53,11 +53,7 @@ Route::get('/fq', function () {
 });
 
 
-
-
-// Route::get("/singleproduct/{listing}", [ProductController::class, 'show']);
-
-
+Route::get("/checkout", [ProductController::class, 'checkout']);
 
 
 Route::get("/add", function() {
