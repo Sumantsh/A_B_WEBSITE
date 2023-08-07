@@ -52,6 +52,12 @@ Route::get('/fq', function () {
     return view('fq');
 });
 
+Route::get('/featch', function () {
+    $post = DB::table('products')->get();
+    dd($post);
+    return view('New.fetachdata');
+});
+
 
 
 
