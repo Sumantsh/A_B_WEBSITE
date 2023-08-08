@@ -2,7 +2,7 @@ $(document).ready( function () {
 
 
     $("#cartwindow").hide();
-    $("#carticon2").hide();
+    // $("#carticon2").hide();
     $("#nav2").hide();
 
 
@@ -25,13 +25,11 @@ $(document).ready( function () {
     
     
 $(".cross").click(function(){
-    $("#cartwindow").fadeOut(200)
-    $("#carticon2").animate({right:"0"},500)
+   
 });
 
 $("#carticon2").click(function(){
-    $("#cartwindow").fadeIn(300)
-    $("#carticon2").animate({right:"25%"},200)
+   
 
 })
 

@@ -16,3 +16,5 @@ class Product extends Model
         "prd_max_price"
     ];
 }
+
+

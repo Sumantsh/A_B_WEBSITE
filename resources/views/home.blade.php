@@ -120,9 +120,10 @@
                         <div class="price"
                             style="margin-top: 10%; color: #57BF6D; font-size: 18px; font-family: robotsan; ">
                             <p>${{$product->prd_min_price}} - ${{$product->prd_max_price}}</p>
+                            <p>{{$product->id}}</p>
                         </div>
 
-                        <a href="Productspage.html" id="buybutton">Select options</a>
+                        <a href="singleproduct/{{$product['id']}}" id="buybutton">Select options</a>
                     </div>
                 @endforeach
                 
