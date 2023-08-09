@@ -1,8 +1,9 @@
 $(document).ready( function () {
 
 
-    $("#cartwindow").hide();
+    // $("#cartwindow").hide();
     // $("#carticon2").hide();
+    // $('.innerwindow').hide()
     $("#nav2").hide();
 
 
@@ -28,9 +29,10 @@ $(".cross").click(function(){
    
 });
 
-$("#carticon2").click(function(){
-   
+$("#carticon2").on('click', function(){
 
+    $('#cartwindow').toggle();
+     
 })
 
     

@@ -71,7 +71,7 @@
                 </div>
 
                 <div class="cart">
-                    <button id="addtocart">ADD TO CART</button>
+                    <button style="cursor: pointer" type="button" name="cart_btn"  id="addtocart">ADD TO CART</button>
                 </div>
             </div>
 
@@ -85,6 +85,7 @@
     <!-- cartwindow -->
 
     <div id="cartwindow">
+
         <div class="innerwindow">
 
             <div class="topwrapper">
@@ -107,11 +108,11 @@
             <div id="productvalues">
 
                 <div class="productimg">
-                    <img src="{{$product['prd_image']}}" alt="">
+                    <img src="{{ asset ($product->prd_image) }}"  alt="">
                 </div>
 
                 <div class="numberofitems">
-                    <p style="font-family: 'Poppins', sans-serif; ">Levitra - <span id="mumberofpills">30 <span>pills,</span><br>
+                    <p style="font-family: 'Poppins', sans-serif; ">{{$product->prd_name}} - <span id="mumberofpills">30 <span>pills,</span><br>
                             <span id="pillsmg">20 <span>mg</span></span> </span> </p>
                     <p><span id="itemsvalues">1</span> <span>X</span> <span>$ <span id="productprice">59.80</span>
                             <span>=</span> <span>$</span> <span id="totalprice">59.80</span> </span></p>
@@ -131,9 +132,17 @@
             
             <div class="buttonwrapper">
                 
-                <div class="checkout">CHECKOUT</div>
-                <div class="viewcart">VIEW CART</div>
-                <div class="continushoping">CONTINUE SHOPPING </div>
+                <div class="checkout">
+                    <a href="">CHECKOUT</a>
+                </div>
+                
+                <div class="viewcart">
+                    <a href="">VIEW CART</a>
+                </div>
+
+                <div class="continushoping">
+                    <a href="">CONTINUE SHOPPING</a>
+                </div>
                 
             </div>
             </div>
@@ -142,7 +151,7 @@
 
         </div>
 
-
+       
 
     </div>
 
@@ -152,6 +161,8 @@
             style="position: absolute; background: black; border-radius: 50%; width:40px;height:40px; color: white; text-align: center; top: -12px; left: -7px; box-shadow: 2px 2px 4px rgba(0, 0, 0,.4) ; display:flex; justify-content:center; align-items:center; ">
             1</div>
     </div>
+
+  
 
     <div id="productdis">
 
