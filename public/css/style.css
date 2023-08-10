@@ -532,9 +532,7 @@ margin-bottom: 4%;
     margin-top: 4%;
     align-items: center;
     padding-bottom: 20px;
-    border-bottom: 1px solid rgba(0 0 0 /.1);
-
-   
+    border-bottom: 1px solid rgba(0 0 0 /.1)
 }
 
 #addcart .addition {
@@ -552,8 +550,6 @@ margin-bottom: 4%;
     font-family: 'Poppins', sans-serif;
     color: #7d7d7d;
     cursor: pointer;
-
-
 }
 
 #addcart .addition #showvalue {
@@ -567,18 +563,22 @@ margin-bottom: 4%;
 
 }
 #addcart  .cart {
-   width: 70%;
+    width: 70%;
 }
 
 #addcart  .cart button {
     padding: 10px;
-    background-color: #1d1d1d;
-    opacity: .3;
+    /* opacity: .3; */
+    background-color: blue;
     margin-left: 4%;
     color: white;
     font-weight: 600;
     font-size: 12px;
     width: 50%;
+}
+
+#addcart  .cart button:disabled {
+    background-color: #1d1d1d;
 }
 
 #cartwindow {
@@ -590,8 +590,6 @@ margin-bottom: 4%;
     position: fixed;
     overflow: hidden;
     display: none;
-    
-    
 }
 
 
