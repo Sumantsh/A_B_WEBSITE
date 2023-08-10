@@ -21,6 +21,11 @@ return new class extends Migration
             $table->string("prd_image");
             $table->decimal("prd_min_price");
             $table->decimal("prd_max_price");
+
+            $table->text("prd_about");
+            $table->string("prd_qty");
+            $table->string("prd_mg");
+            $table->text("prd_details");
         });
     }
 
