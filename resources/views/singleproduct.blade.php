@@ -9,7 +9,7 @@
 
 
 
-            <img src="/static/img/products/Levitra.jpg" alt="">
+            <img src="{{ asset ($product->prd_image) }}" alt="">
             <div id="sale2" class="sale">SALE!</div>
             <i class="fa-solid fa-magnifying-glass" id="search"></i>
 
@@ -20,15 +20,15 @@
         <div id="productinfo">
 
             <div class="productname">
-                <h2 style="font-size: 24px; font-weight: 600; font-family: robotsan; letter-spacing: 1px; color:#333;">
-                    Levitra</h2>
+                <h2 style="font-size: 24px; font-weight: 600; font-family: 'Poppins', sans-serif; letter-spacing: 1px; color:#333;">
+                    {{$product->prd_name}}</h2>
                 <i class="fa-solid fa-chevron-right"></i>
             </div>
 
             <div class="price">
-                <p style="font-size: 30px; font-family: open; font-weight: 600;  margin: 4% 0px; color:#57bf6d; ">$
-                    <span id="productpricein">59.80</span> – $ <span id="productpricein"> 425.40 </span></p>
-                <p style="font-size: 14px ;  font-family: robotsan; color: #5f5f5f; margin-bottom: 4%;">Levitra is a
+                <p style="font-size: 30px; font-family: 'Poppins', sans-serif; font-weight: 600;  margin: 4% 0px; color:#57bf6d; ">
+                    <span id="productpricein">$ {{$product->prd_min_price}}</span>  <span id="productpricein">– $  {{$product->prd_max_price}}</span></p>
+                <p style="font-size: 14px ;  font-family: 'Poppins', sans-serif: #5f5f5f; margin-bottom: 4%;">Levitra is a
                     therapy for erectile dysfunction treatment.</p>
             </div>
 
@@ -71,29 +71,28 @@
                 </div>
 
                 <div class="cart">
-                    <button id="addtocart">ADD TO CART</button>
+                    <button style="cursor: pointer" type="button" name="cart_btn"  id="addtocart">ADD TO CART</button>
                 </div>
             </div>
 
 
         </div>
 
-        <div class="blank">
-
-        </div>
+        <div class="blank"></div>
 
     </div>
 
     <!-- cartwindow -->
 
     <div id="cartwindow">
+
         <div class="innerwindow">
 
             <div class="topwrapper">
 
-                <div class="icon" style="position: relative;"><span><img src="/static/img/icon/bag.svg" width="30px"
+                <div class="icon" style="position: relative;"><span><img src="{{ asset ('img/icon/bag.svg') }}" width="30px"
                             style="position: relative;" alt=""> <span
-                            style="position: absolute; right: 8%; top: 27%; ">1</span> </span></div>
+                            style="position: absolute; right: 10%; top: 27%; ">1</span> </span></div>
 
                 <div class="heading" style=" width: 55%;  padding: 0px 10px;">
                     <p>Your Cart</p>
@@ -109,11 +108,11 @@
             <div id="productvalues">
 
                 <div class="productimg">
-                    <img src="/static/img/products/Levitra.jpg" alt="">
+                    <img src="{{ asset ($product->prd_image) }}"  alt="">
                 </div>
 
                 <div class="numberofitems">
-                    <p style="font-family: robotsan; ">Levitra - <span id="mumberofpills">30 <span>pills,</span><br>
+                    <p style="font-family: 'Poppins', sans-serif; ">{{$product->prd_name}} - <span id="mumberofpills">30 <span>pills,</span><br>
                             <span id="pillsmg">20 <span>mg</span></span> </span> </p>
                     <p><span id="itemsvalues">1</span> <span>X</span> <span>$ <span id="productprice">59.80</span>
                             <span>=</span> <span>$</span> <span id="totalprice">59.80</span> </span></p>
@@ -125,28 +124,45 @@
 
             </div>
 
-            <div id="checkout">
-                <div class="subtotal"> Subtotal: <span style="margin-left: 0%; color: #57BF6D;">$</span> <span
-                        style="margin-left: -5px; color: #57BF6D;">86.88</span> </div>
-                <div class="checkout">CHECKOUT</div>
-                <div class="viewcart">VIEW CART</div>
-                <div class="continushoping">CONTINUE SHOPPING</div>
+            <div id="checkout" style="background: ">
+
+                <div class="subtotal"> Subtotal: <span style="margin-left: 0%; color: #57BF6D;">$</span> <span style="margin-left: -5px; color: #57BF6D;">86.88</span> 
+                </div>
+                
+            
+            <div class="buttonwrapper">
+                
+                <div class="checkout">
+                    <a href="">CHECKOUT</a>
+                </div>
+                
+                <div class="viewcart">
+                    <a href="">VIEW CART</a>
+                </div>
+
+                <div class="continushoping">
+                    <a href="">CONTINUE SHOPPING</a>
+                </div>
+                
+            </div>
             </div>
 
 
 
         </div>
 
-
+       
 
     </div>
 
     <div id="carticon2">
-        <img src="/static/img/icon/bagicon.svg" width="100%" alt="">
+        <img src="{{ asset ('img/icon/bagicon.svg') }}" class="bagicon" alt="">
         <div
-            style="position: absolute; background: black; border-radius: 50%; padding: 5px 10px; color: white; text-align: center; top: -12px; left: -7px; box-shadow: 2px 2px 4px rgba(0, 0, 0,.4) ; ">
+            style="position: absolute; background: black; border-radius: 50%; width:40px;height:40px; color: white; text-align: center; top: -12px; left: -7px; box-shadow: 2px 2px 4px rgba(0, 0, 0,.4) ; display:flex; justify-content:center; align-items:center; ">
             1</div>
     </div>
+
+  
 
     <div id="productdis">
 
@@ -245,7 +261,7 @@
                 It has the size of a normal protected envelope and it does not disclose its contents.</p>
 
             <div class="pack">
-                <img src="/static/img/pack.png" alt="">
+                <img src="{{ asset ('img/pack.png')}}" alt="">
             </div>
 
 

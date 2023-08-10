@@ -1,14 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 
 class ProductController extends Controller
 {
-    public function index() {
+    public function index(Request $request) {
         return view("home", [
             "products" => Product::all()
         ]); 
@@ -26,5 +25,10 @@ class ProductController extends Controller
         $qty = $request->query("qty");
 
         return Redirect::away("http://localhost:4000/pay?id=$id&mg=$mg&qty=$qty");
+    }
+
+    public function singleproduct($id) {
+        $product = Product::find($id);
+        return view('singleproduct', ['product'=>$product]);
     }
 }
