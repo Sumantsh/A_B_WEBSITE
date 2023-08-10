@@ -1,11 +1,12 @@
 <?php
 
-use App\Http\Controllers\ProductController;
-use Illuminate\Support\Facades\Route;
 use App\Models\Product;
 use Dotenv\Store\File\Reader;
-use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,6 +51,14 @@ Route::get('/policies', function () {
 
 Route::get('/fq', function () {
     return view('fq');
+});
+
+Route::get('singleproduct/{id}', [ProductController::class, 'singleproduct']);
+
+Route::get('/featch', function () {
+    $post = DB::table('products')->get();
+    dd($post);
+    return view('New.fetachdata');
 });
 
 

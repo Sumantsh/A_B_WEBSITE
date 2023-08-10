@@ -20,3 +20,5 @@ class Product extends Model
         "prd_mg"
     ];
 }
+
+
