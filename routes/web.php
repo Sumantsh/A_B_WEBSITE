@@ -1,12 +1,11 @@
 <?php
 
 use App\Models\Product;
-use Dotenv\Store\File\Reader;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -53,7 +52,11 @@ Route::get('/fq', function () {
     return view('fq');
 });
 
-Route::get('singleproduct/{id}', [ProductController::class, 'singleproduct']);
+Route::get('singleproduct/{id}', function($id)  {
+    return view('singleproduct', [
+        'product' => Product::find($id)
+    ]);
+});
 
 Route::get('/featch', function () {
     $post = DB::table('products')->get();
@@ -76,16 +79,29 @@ Route::get("/add", function() {
             'prd_dis' => $item['prd_dis'],
             "prd_image" => $item['prd_image'],
             'prd_min_price' => $item['prd_min_price'],
-            "prd_max_price" => $item['prd_max_price']
+            "prd_max_price" => $item['prd_max_price'],
+            "prd_about" => $item['prd_about'],
+            "prd_qty" => $item['prd_qty'],
+            "prd_mg" => $item['prd_mg'],
+            "prd_details" => $item['prd_details']
         ]);
     }
 
     echo "Okay";
-})
+});
 
+Route::post("/add-to-cart", function(Request $request) {
+    $formdata = $request->json()->all();
+    $formDataFromSession = $request->session()->get('formdata', []);
+    $formDataFromSession[] = $formdata;
 
-// Route::group(['prefix' => 'admin'], function () {
-//     Voyager::routes();
-// });
+    $request->session()->put('formdata', $formDataFromSession);
+    return response()->json(["msg" => "Product added to the cart", "data" => $formDataFromSession], 201);
+});
 
+Route::post("/remove-product/{id}", function() {
+    
+});
+
+    
 ?>
