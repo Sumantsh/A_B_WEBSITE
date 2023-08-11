@@ -99,7 +99,7 @@
                     <p>Your Cart</p>
                 </div>
 
-                <div class="cross" style="width:auto; cursor: pointer; ">
+                <div class="cross" style="width:auto; cursor: pointer; " @click="showCart = !showCart">
                     <i class="fa-solid fa-xmark"></i>
                 </div>
 
