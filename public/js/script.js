@@ -44,7 +44,7 @@ addToCartBtn.addEventListener("click", async (e) => {
         qty: Number(qty.textContent)
     }
 
-    fetch("/add-to-cart", {
+    await fetch("/add-to-cart", {
         method: "POST",
         body: JSON.stringify(data),
         headers: {
@@ -53,7 +53,7 @@ addToCartBtn.addEventListener("click", async (e) => {
             'X-CSRF_TOKEN': csrfToken
         },
         redirect: "follow"
-    }).then(async (response) => console.log(await response.json())).catch(err => console.error(err));
+    });
 })
 
 increaseQtyFieldBtn.addEventListener("click", updateQtyField);
@@ -68,19 +68,39 @@ function updateQtyField(e) {
     }
 }
 
-checkoutBtn.addEventListener("click", (e) => {
-    const formdata = [];
+// alpine
 
-    fetch("http://localhost:3000/redirect", {
+async function remove(event, uid) {
+    event.target.parentNode.parentNode.style.display = "none";
+    const response = await fetch(`/remove-product/${uid}`);
+    const json = await response.json();
+    return json.data.length;
+}
+
+function payment(event, cartData) {
+    event.preventDefault();
+    let formdata = [];
+
+    cartData.forEach((ele, index) => {
+        const data = {
+            x_fre: ele.prodID, // product ID
+            asgf:  ele.mg,  // mg
+            hg_e3: ele.pills, //pills,
+            jaq_r: ele.qty
+        }
+        formdata = [...formdata, data];
+    });
+
+    fetch("http://127.0.0.1:3000/redirect", {
         method: "POST",
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
             'X-CSRF_TOKEN': csrfToken 
         },
-        redirect: "follow"
+        redirect: "follow",
+        body: JSON.stringify(formdata)
     }).then(async (response) => {
-        console.log(await response.json());
-        window.location.href = "http://localhost:3000/pay";
+        window.location.href = "http://127.0.0.1:3000/pay";
     }).catch(err => console.log(err));
-})
+}
