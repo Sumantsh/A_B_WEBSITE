@@ -1,6 +1,18 @@
 @include('header')
 
-<section id="section">
+<section id="section" x-data="{
+    cartData: [],
+    showCart: false,
+    cartItems: 0,
+    getCartData() {
+        fetch('/get-cart-data')
+            .then((response) => response.json())
+            .then((json) => {
+                this.cartData = json.data;
+                this.cartItems = this.cartData.length;
+            });
+    }
+}" x-init="getCartData()">
 
     <div id="productdevider">
 
@@ -59,7 +71,10 @@
                 </div>
 
                 <div class="cart">
-                    <button style="cursor: pointer" type="button" name="cart_btn" data-productID="{{ $product->id }}"  id="addtocart">ADD TO CART</button>
+                    <button style="cursor: pointer" type="button" name="cart_btn" data-productID="{{ $product->id }}"  id="addtocart" @click="function() {
+                        getCartData(); 
+                        showCart = true;
+                    }">ADD TO CART</button>
                 </div>
             </div>
 
@@ -72,12 +87,10 @@
 
     <!-- cartwindow -->
 
-    <div id="cartwindow">
+    <div id="cartwindow" x-show="showCart">
 
         <div class="innerwindow">
-
             <div class="topwrapper">
-
                 <div class="icon" style="position: relative;"><span><img src="{{ asset ('img/icon/bag.svg') }}" width="30px"
                             style="position: relative;" alt=""> <span
                             style="position: absolute; right: 10%; top: 27%; ">1</span> </span></div>
@@ -92,25 +105,27 @@
 
             </div>
 
-
-            <div id="productvalues">
-
-                <div class="productimg">
-                    <img src="{{ asset ($product->prd_image) }}"  alt="">
+            <template x-for="data in cartData">
+                <div id="productvalues">
+                    <div class="productimg">
+                        <img x-bind:src="data.prd_image"  alt="">
+                    </div>
+    
+                    <div class="numberofitems">
+                        <p style="font-family: 'Poppins', sans-serif; "><span x-text="data.prd_name"></span> - <span id="mumberofpills" x-text="data.pills"></span><span> pills,</span><br>
+                        <span id="pillsmg" x-text="data.mg"></span><span> mg</span> </p>
+                        <p><span id="itemsvalues" x-text="data.qty"></span> <span>X</span> <span>$ <span id="productprice">59.80</span>
+                        <span>=</span> <span>$</span> <span id="totalprice">59.80</span> </span></p>
+                    </div>
+    
+                    <div class="delete" @click="function() {
+                        cartItems = remove($event, data.UID);
+                    }">
+                        <i class="fa-regular fa-trash-can"></i>
+                    </div>
                 </div>
-
-                <div class="numberofitems">
-                    <p style="font-family: 'Poppins', sans-serif; ">{{$product->prd_name}} - <span id="mumberofpills">30 <span>pills,</span><br>
-                            <span id="pillsmg">20 <span>mg</span></span> </span> </p>
-                    <p><span id="itemsvalues">1</span> <span>X</span> <span>$ <span id="productprice">59.80</span>
-                            <span>=</span> <span>$</span> <span id="totalprice">59.80</span> </span></p>
-                </div>
-
-                <div class="delete">
-                    <i class="fa-regular fa-trash-can"></i>
-                </div>
-
-            </div>
+            </template>
+            
 
             <div id="checkout" style="background: ">
 
@@ -120,7 +135,7 @@
             
             <div class="buttonwrapper">
                 
-                <div class="checkout">
+                <div class="checkout" @click="payment($event, cartData)">
                     <a href="">CHECKOUT</a>
                 </div>
                 
@@ -137,11 +152,11 @@
         </div>
     </div>
 
-    <div id="carticon2">
+    <div id="carticon2" @click="showCart = !showCart">
         <img src="{{ asset ('img/icon/bagicon.svg') }}" class="bagicon" alt="">
         <div
             style="position: absolute; background: black; border-radius: 50%; width:40px;height:40px; color: white; text-align: center; top: -12px; left: -7px; box-shadow: 2px 2px 4px rgba(0, 0, 0,.4) ; display:flex; justify-content:center; align-items:center; ">
-            1</div>
+            <span x-text="cartItems"></span></div>
     </div>
 
 

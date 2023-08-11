@@ -13,13 +13,8 @@ class ProductController extends Controller
         ]); 
     }
 
-    public function show(Product $product) {
-
-        var_dump($product->prd_name);
-
-        // return view("singleproduct", [
-        //     "product" => $product
-        // ]);
+    public function show($id) {
+        return response()->json(["data", Product::find($id)]);
     } 
 
     public function checkout(Request $request) {

@@ -589,7 +589,7 @@ margin-bottom: 4%;
     z-index: 10;
     position: fixed;
     overflow: hidden;
-    display: none;
+    /* display: none; */
 }
 
 

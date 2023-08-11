@@ -29,11 +29,11 @@ $(".cross").click(function(){
    
 });
 
-$("#carticon2").on('click', function(){
+// $("#carticon2").on('click', function(){
 
-    $('#cartwindow').toggle();
+//     $('#cartwindow').toggle();
      
-})
+// })
 
     
 
