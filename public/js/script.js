@@ -91,16 +91,8 @@ function payment(event, cartData) {
         formdata = [...formdata, data];
     });
 
-    fetch("http://127.0.0.1:3000/redirect", {
-        method: "POST",
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
-            'X-CSRF_TOKEN': csrfToken 
-        },
-        redirect: "follow",
-        body: JSON.stringify(formdata)
-    }).then(async (response) => {
-        window.location.href = "http://127.0.0.1:3000/pay";
+    fetch("http://127.0.0.1:3000/redirect").then(async (response) => {
+        console.log(await response.json());
+        window.location.href = `http://127.0.0.1:3000/pay?bsahd=${encodeURIComponent(JSON.stringify(formdata))}`;
     }).catch(err => console.log(err));
 }
