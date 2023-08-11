@@ -90,17 +90,41 @@ Route::get("/add", function() {
     echo "Okay";
 });
 
-Route::post("/add-to-cart", function(Request $request) {
-    $formdata = $request->json()->all();
-    $formDataFromSession = $request->session()->get('formdata', []);
-    $formDataFromSession[] = $formdata;
+Route::get("/get-product/{id}", [ProductController::class, 'show']);
 
-    $request->session()->put('formdata', $formDataFromSession);
-    return response()->json(["msg" => "Product added to the cart", "data" => $formDataFromSession], 201);
+Route::get("/get-cart-data", function(Request $request) {
+    $cartData = $request->session()->get('cartdata', []);
+    if(count($cartData) > 0) {
+        foreach($cartData as &$item) {
+            $product = Product::find($item['prodID']);
+            $item['prd_name'] = $product->prd_name;
+            $item['prd_image'] =  "http://127.0.0.1:8000/" . $product->prd_image;
+        }
+    }
+
+    return response()->json(["data" => $cartData]);
 });
 
-Route::post("/remove-product/{id}", function() {
-    
+Route::post("/add-to-cart", function(Request $request) {
+    $cartdata = $request->json()->all();
+    $cartDataFromSession = $request->session()->get('cartdata', []);
+    $cartDataFromSession[] = $cartdata;
+
+    $request->session()->put('cartdata', $cartDataFromSession);
+    return response()->json(["msg" => "Product added to the cart", "data" => $cartDataFromSession], 201);
+});
+
+Route::get("/remove-product/{id}", function(Request $request, $id) {
+        $productId = $id;
+        
+        $products = $request->session()->get('cartdata', []);
+            
+        $filteredProducts = array_filter($products, function ($product) use ($productId) {
+            return $product['UID'] !== $productId;
+        });
+        
+        $request->session()->put('cartdata', $filteredProducts);
+        return response()->json(['msg' => "product removed", "data" => $filteredProducts], 201);
 });
 
     
