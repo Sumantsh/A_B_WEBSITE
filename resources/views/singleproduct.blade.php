@@ -89,17 +89,16 @@
 
     <div id="cartwindow" x-show="showCart">
 
-        <div class="innerwindow">
+        <div class="innerwindow" @click.outside="showCart = false">
             <div class="topwrapper">
                 <div class="icon" style="position: relative;"><span><img src="{{ asset ('img/icon/bag.svg') }}" width="30px"
-                            style="position: relative;" alt=""> <span
-                            style="position: absolute; right: 10%; top: 27%; ">1</span> </span></div>
+                            style="position: relative;" alt=""></span></div>
 
-                <div class="heading" style=" width: 55%;  padding: 0px 10px;">
+                <div class="heading" style="padding: 0px 10px;">
                     <p>Your Cart</p>
                 </div>
 
-                <div class="cross" style="width:auto; cursor: pointer; " @click="showCart = !showCart">
+                <div class="cross" style="cursor: pointer; " @click="showCart = !showCart">
                     <i class="fa-solid fa-xmark"></i>
                 </div>
 
