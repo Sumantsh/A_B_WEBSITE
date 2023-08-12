@@ -612,6 +612,8 @@ margin-bottom: 4%;
 
 #carticon2 {
     position: fixed;
+    height: 5.5rem;
+    width: 5.5rem;
     bottom: 5%;
     right: 21%;
     border-radius: 100%;
