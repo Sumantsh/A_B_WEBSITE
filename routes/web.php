@@ -52,7 +52,8 @@ Route::get('/fq', function () {
     return view('fq');
 });
 
-Route::get('singleproduct/{id}', function($id)  {
+Route::get('singleproduct', function(Request $request)  {
+    $id = $request->query('id');
     return view('singleproduct', [
         'product' => Product::find($id)
     ]);
@@ -114,8 +115,8 @@ Route::post("/add-to-cart", function(Request $request) {
     return response()->json(["msg" => "Product added to the cart", "data" => $cartDataFromSession], 201);
 });
 
-Route::get("/remove-product/{id}", function(Request $request, $id) {
-        $productId = $id;
+Route::get("/remove-product", function(Request $request) {
+        $productId = $request->query('id');
         
         $products = $request->session()->get('cartdata', []);
             

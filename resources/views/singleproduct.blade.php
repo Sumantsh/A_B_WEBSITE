@@ -9,7 +9,7 @@
             .then((response) => response.json())
             .then((json) => {
                 this.cartData = json.data;
-                this.cartItems = this.cartData.length;
+                this.cartItems = Object.keys(this.cartData).length;
             });
     }
 }" x-init="getCartData()">
@@ -117,7 +117,7 @@
                         <span>=</span> <span>$</span> <span id="totalprice">59.80</span> </span></p>
                     </div>
     
-                    <div class="delete" @click="function() {
+                    <div class="delete" @click="async function() {
                         cartItems = remove($event, data.UID);
                     }">
                         <i class="fa-regular fa-trash-can"></i>

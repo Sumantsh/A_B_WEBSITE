@@ -72,9 +72,9 @@ function updateQtyField(e) {
 
 async function remove(event, uid) {
     event.target.parentNode.parentNode.style.display = "none";
-    const response = await fetch(`/remove-product/${uid}`);
+    const response = await fetch(`/remove-product?id=${uid}`);
     const json = await response.json();
-    return json.data.length;
+    return Object.keys(json.data).length;
 }
 
 function payment(event, cartData) {
