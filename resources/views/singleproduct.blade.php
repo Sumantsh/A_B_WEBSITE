@@ -12,7 +12,7 @@
                 this.cartItems = Object.keys(this.cartData).length;
             });
     }
-}" x-init="getCartData()">
+}">
 
     <div id="productdevider">
 
@@ -151,7 +151,10 @@
         </div>
     </div>
 
-    <div id="carticon2" @click="showCart = !showCart">
+    <div id="carticon2" @click="function() {
+        showCart = !showCart;
+        getCartData();
+    }">
         <img src="{{ asset ('img/icon/bagicon.svg') }}" class="bagicon" alt="">
         <div
             style="position: absolute; background: black; border-radius: 50%; width:40px;height:40px; color: white; text-align: center; top: -12px; left: -7px; box-shadow: 2px 2px 4px rgba(0, 0, 0,.4) ; display:flex; justify-content:center; align-items:center; ">
