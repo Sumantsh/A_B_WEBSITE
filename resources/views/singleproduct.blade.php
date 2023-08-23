@@ -71,8 +71,8 @@
                 </div>
 
                 <div class="cart">
-                    <button style="cursor: pointer" type="button" name="cart_btn" data-productID="{{ $product->id }}"  id="addtocart" @click="function() {
-                        getCartData(); 
+                    <button style="cursor: pointer" type="button" name="cart_btn" data-productID="{{ $product->id }}"  id="addtocart" @click="async function() {
+                        await getCartData(); 
                         showCart = true;
                     }">ADD TO CART</button>
                 </div>
@@ -118,7 +118,7 @@
                     </div>
     
                     <div class="delete" @click="async function() {
-                        cartItems = remove($event, data.UID);
+                        cartItems = await remove($event, data.UID);
                     }">
                         <i class="fa-regular fa-trash-can"></i>
                     </div>
@@ -259,11 +259,12 @@
                 <img src="{{ asset ('img/pack.png')}}" alt="">
             </div> --}}
 
-
+            <div>
             @php
                 print_r($product->prd_details);
-            @endphp
-
+            @endphp 
+                <center><img src="{{ asset('img/pack.png')}}"></center>
+            </div>
 
         </div>
 
