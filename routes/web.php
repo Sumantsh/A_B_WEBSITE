@@ -128,5 +128,9 @@ Route::get("/remove-product", function(Request $request) {
         return response()->json(['msg' => "product removed", "data" => $filteredProducts], 201);
 });
 
+Route::get("/trial", function() {
+    return view('trial');
+});
+
 
 ?>

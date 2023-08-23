@@ -44,7 +44,7 @@ addToCartBtn.addEventListener("click", async (e) => {
         qty: Number(qty.textContent)
     }
 
-    await fetch("/add-to-cart", {
+    const response = await fetch("/add-to-cart", {
         method: "POST",
         body: JSON.stringify(data),
         headers: {
@@ -54,6 +54,8 @@ addToCartBtn.addEventListener("click", async (e) => {
         },
         redirect: "follow"
     });
+
+    console.log(await response.json())
 })
 
 increaseQtyFieldBtn.addEventListener("click", updateQtyField);
