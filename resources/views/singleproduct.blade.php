@@ -56,7 +56,7 @@
                     <p>MG</p>
                     <select name="mg" id="pillsmg">
                         <option value="0">Choose an option</option>
-                        @foreach ($pills as $item)
+                        @foreach ($mg as $item)
                             <option value="{{ $item }}">{{ $item }}mg</option>
                         @endforeach
                     </select>
