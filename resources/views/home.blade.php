@@ -103,6 +103,8 @@
             <div id="rightsideproduct">
 
                 @foreach ($products as $product)
+                
+              
                     <div class="productcard">
                         <div class="productimg">
                             <img src="{{ asset ($product->prd_image) }}" alt="">
@@ -122,7 +124,11 @@
                             <p>${{$product->prd_min_price}} - ${{$product->prd_max_price}}</p>
                         </div>
 
-                        <a href="/singleproduct/{{$product->id}}" id="buybutton">Select options</a>
+                        {{-- @php
+                        print $product->id ;   
+                        @endphp --}}
+
+                        <a href="singleproduct/{{$product['id']}}" id="buybutton">Select options</a>
                     </div>
                 @endforeach
                 

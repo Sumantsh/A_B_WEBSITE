@@ -24,6 +24,8 @@ Route::get('about', function () {
     return view('about');
 });
 
+
+
 Route::get('contact', function () {
     return view('contact');
 });
@@ -52,11 +54,15 @@ Route::get('/fq', function () {
     return view('fq');
 });
 
+
+
 Route::get('singleproduct/{id}', function($id)  {
     return view('singleproduct', [
         'product' => Product::find($id)
     ]);
 });
+
+
 
 Route::get('/featch', function () {
     $post = DB::table('products')->get();
