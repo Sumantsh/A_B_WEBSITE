@@ -583,6 +583,7 @@ margin-bottom: 4%;
 
 #cartwindow {
     width: 100%;
+    height: 100%;
     /* background: rgba(0 0 0 /.8); */
     top: 0;
     bottom: 0;
@@ -612,6 +613,8 @@ margin-bottom: 4%;
 
 #carticon2 {
     position: fixed;
+    height: 5.5rem;
+    width: 5.5rem;
     bottom: 5%;
     right: 21%;
     border-radius: 100%;

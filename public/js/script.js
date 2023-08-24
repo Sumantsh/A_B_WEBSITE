@@ -47,7 +47,7 @@ addToCartBtn.addEventListener("click", async (e) => {
         price: price
     }
 
-    await fetch("/add-to-cart", {
+    const response = await fetch("/add-to-cart", {
         method: "POST",
         body: JSON.stringify(data),
         headers: {
@@ -57,6 +57,8 @@ addToCartBtn.addEventListener("click", async (e) => {
         },
         redirect: "follow"
     });
+
+    console.log(await response.json())
 })
 
 increaseQtyFieldBtn.addEventListener("click", updateQtyField);
@@ -75,9 +77,9 @@ function updateQtyField(e) {
 
 async function remove(event, uid) {
     event.target.parentNode.parentNode.style.display = "none";
-    const response = await fetch(`/remove-product/${uid}`);
+    const response = await fetch(`/remove-product?id=${uid}`);
     const json = await response.json();
-    return json.data.length;
+    return Object.keys(json.data).length;
 }
 
 function payment(event, cartData) {

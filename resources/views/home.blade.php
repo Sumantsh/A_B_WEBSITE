@@ -124,11 +124,13 @@
                             <p>${{$product->prd_min_price}} - ${{$product->prd_max_price}}</p>
                         </div>
 
-                        {{-- @php
-                        print $product->id ;   
-                        @endphp --}}
 
-                        <a href="singleproduct/{{$product['id']}}" id="buybutton">Select options</a>
+                      
+
+                       
+
+                        <a href="/singleproduct?id={{$product->id}}" id="buybutton">Select options</a>
+
                     </div>
                 @endforeach
                 

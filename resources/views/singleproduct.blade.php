@@ -9,7 +9,7 @@
             .then((response) => response.json())
             .then((json) => {
                 this.cartData = json.data;
-                this.cartItems = this.cartData.length;
+                this.cartItems = Object.keys(this.cartData).length;
             });
     }
 }" x-init="getCartData()">
@@ -56,7 +56,7 @@
                     <p>MG</p>
                     <select name="mg" id="pillsmg">
                         <option value="0">Choose an option</option>
-                        @foreach ($pills as $item)
+                        @foreach ($mg as $item)
                             <option value="{{ $item }}">{{ $item }}mg</option>
                         @endforeach
                     </select>
@@ -71,8 +71,8 @@
                 </div>
 
                 <div class="cart">
-                    <button style="cursor: pointer" type="button" name="cart_btn" data-productID="{{ $product->id }}"  id="addtocart" @click="function() {
-                        getCartData(); 
+                    <button style="cursor: pointer" type="button" name="cart_btn" data-productID="{{ $product->id }}"  id="addtocart" @click="async function() {
+                        await getCartData(); 
                         showCart = true;
                     }">ADD TO CART</button>
                 </div>
@@ -117,8 +117,8 @@
                         <span>=</span> <span>$</span> <span id="totalprice">59.80</span> </span></p>
                     </div>
     
-                    <div class="delete" @click="function() {
-                        cartItems = remove($event, data.UID);
+                    <div class="delete" @click="async function() {
+                        cartItems = await remove($event, data.UID);
                     }">
                         <i class="fa-regular fa-trash-can"></i>
                     </div>
@@ -259,11 +259,12 @@
                 <img src="{{ asset ('img/pack.png')}}" alt="">
             </div> --}}
 
-
+            <div>
             @php
                 print_r($product->prd_details);
-            @endphp
-
+            @endphp 
+                <center><img src="{{ asset('img/pack.png')}}"></center>
+            </div>
 
         </div>
 
