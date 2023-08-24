@@ -31,7 +31,7 @@
 
             <div class="price">
                 <p style="font-size: 30px; font-family: 'Poppins', sans-serif; font-weight: 600;  margin: 4% 0px; color:#57bf6d; ">
-                    <span id="productpricein">$ {{$product->prd_min_price}}</span>  <span id="productpricein">– $  {{$product->prd_max_price}}</span></p>
+                    <span>$ <span id="productpricemin">{{$product->prd_min_price}}</span></span>  <span id="productpricemax">– $  {{$product->prd_max_price}}</span></p>
                 <p style="font-size: 14px ;  font-family: 'Poppins', sans-serif: #5f5f5f; margin-bottom: 4%;">{{ $product->prd_about }}</p>
             </div>
 

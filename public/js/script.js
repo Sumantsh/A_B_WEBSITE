@@ -2,6 +2,7 @@ const mgSelect = document.querySelector("#pillsmg");
 const pillSelect = document.querySelector("#pillsquantity");
 const addToCartBtn = document.querySelector("#addtocart");
 const qty = document.querySelector("#showvalue");
+const priceMin = document.querySelector("#productpricemin");
 
 // checkout button
 const checkoutBtn = document.querySelector(".checkout");
@@ -35,13 +36,15 @@ addToCartBtn.addEventListener("click", async (e) => {
     const productID = addToCartBtn.dataset.productid;
     const mgValue = mgSelect.options[mgSelect.selectedIndex].value;
     const pillValue = pillSelect.options[pillSelect.selectedIndex].value;
+    const price = priceMin.textContent;
 
     const data = {
         UID: uid(),
         prodID: productID,
         mg: mgValue,
         pills: pillValue,
-        qty: Number(qty.textContent)
+        qty: Number(qty.textContent),
+        price: price
     }
 
     const response = await fetch("/add-to-cart", {
@@ -88,7 +91,8 @@ function payment(event, cartData) {
             x_fre: ele.prodID, // product ID
             asgf:  ele.mg,  // mg
             hg_e3: ele.pills, //pills,
-            jaq_r: ele.qty
+            jaq_r: ele.qty,
+            price: ele.price
         }
         formdata = [...formdata, data];
     });

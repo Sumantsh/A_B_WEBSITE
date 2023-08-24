@@ -24,6 +24,8 @@ Route::get('about', function () {
     return view('about');
 });
 
+
+
 Route::get('contact', function () {
     return view('contact');
 });
@@ -52,12 +54,15 @@ Route::get('/fq', function () {
     return view('fq');
 });
 
+
 Route::get('singleproduct', function(Request $request)  {
     $id = $request->query('id');
     return view('singleproduct', [
         'product' => Product::find($id)
     ]);
 });
+
+
 
 Route::get('/featch', function () {
     $post = DB::table('products')->get();
@@ -127,10 +132,4 @@ Route::get("/remove-product", function(Request $request) {
         $request->session()->put('cartdata', $filteredProducts);
         return response()->json(['msg' => "product removed", "data" => $filteredProducts], 201);
 });
-
-Route::get("/trial", function() {
-    return view('trial');
-});
-
-
 ?>
