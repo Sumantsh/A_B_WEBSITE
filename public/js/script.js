@@ -4,10 +4,6 @@ const addToCartBtn = document.querySelector("#addtocart");
 const qty = document.querySelector("#showvalue");
 const priceMin = document.querySelector("#productpricemin");
 
-// checkout button
-const checkoutBtn = document.querySelector(".checkout");
-
-
 var csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
 const increaseQtyFieldBtn = document.querySelector("#plus");
@@ -17,7 +13,7 @@ mgSelect.addEventListener("click", updateButtonState);
 pillSelect.addEventListener("click", updateButtonState);
 
 function updateButtonState() {
-    if (Number(mgSelect.options[mgSelect.selectedIndex].value) && Number(pillSelect.options[pillSelect.selectedIndex].value)) {
+    if (Number(mgSelect.options[mgSelect.selectedIndex].value) !== 0 && Number(pillSelect.options[pillSelect.selectedIndex].value) !== 0) {
         addToCartBtn.removeAttribute("disabled");
     } else {
         addToCartBtn.setAttribute("disabled", "");
@@ -57,8 +53,10 @@ addToCartBtn.addEventListener("click", async (e) => {
         },
         redirect: "follow"
     });
-
-    console.log(await response.json())
+    const json = await response.json();
+    if(json.msg == "Product added to the cart") {
+        Livewire.emit('updateComponent');
+    }
 })
 
 increaseQtyFieldBtn.addEventListener("click", updateQtyField);
@@ -73,18 +71,28 @@ function updateQtyField(e) {
     }
 }
 
-// alpine
+document.addEventListener('livewire:load', function () {
+    let hookExecutionCount = 0;
+    Livewire.hook('element.initialized', (el, component) => {
+        if(hookExecutionCount < 1) {
+            const checkoutBtn = el.querySelector(".checkout");
+            if(checkoutBtn) {
+                checkoutBtn.addEventListener("click", (e) => payment(e));
+            }
+            hookExecutionCount++;
+        }
+    });
+});
 
-async function remove(event, uid) {
-    event.target.parentNode.parentNode.style.display = "none";
-    const response = await fetch(`/remove-product?id=${uid}`);
-    const json = await response.json();
-    return Object.keys(json.data).length;
-}
 
-function payment(event, cartData) {
+
+async function payment(event) {
     event.preventDefault();
     let formdata = [];
+
+    const response = await fetch("/get-cart-data");
+    const json = await response.json();
+    const cartData = json.data;
 
     cartData.forEach((ele, index) => {
         const data = {

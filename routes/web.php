@@ -5,7 +5,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
-
+use App\Http\Livewire\Cart;
 
 /*
 |--------------------------------------------------------------------------
@@ -70,14 +70,11 @@ Route::get('/featch', function () {
     return view('New.fetachdata');
 });
 
-
 Route::get("/checkout", [ProductController::class, 'checkout']);
-
 
 Route::get("/add", function() {
     $jsonFile = file_get_contents(storage_path("json/product.json"));
     $data = json_decode($jsonFile, true);
-
 
     foreach ($data as $item) {
         Product::create([
@@ -96,7 +93,7 @@ Route::get("/add", function() {
     echo "Okay";
 });
 
-Route::get("/get-product/{id}", [ProductController::class, 'show']);
+// Route::get("/get-product/{id}", [ProductController::class, 'show']);
 
 Route::get("/get-cart-data", function(Request $request) {
     $cartData = $request->session()->get('cartdata', []);
@@ -107,29 +104,9 @@ Route::get("/get-cart-data", function(Request $request) {
             $item['prd_image'] =  "http://127.0.0.1:8000/" . $product->prd_image;
         }
     }
-
     return response()->json(["data" => $cartData]);
 });
 
-Route::post("/add-to-cart", function(Request $request) {
-    $cartdata = $request->json()->all();
-    $cartDataFromSession = $request->session()->get('cartdata', []);
-    $cartDataFromSession[] = $cartdata;
 
-    $request->session()->put('cartdata', $cartDataFromSession);
-    return response()->json(["msg" => "Product added to the cart", "data" => $cartDataFromSession], 201);
-});
-
-Route::get("/remove-product", function(Request $request) {
-        $productId = $request->query('id');
-        
-        $products = $request->session()->get('cartdata', []);
-            
-        $filteredProducts = array_filter($products, function ($product) use ($productId) {
-            return $product['UID'] !== $productId;
-        });
-        
-        $request->session()->put('cartdata', $filteredProducts);
-        return response()->json(['msg' => "product removed", "data" => $filteredProducts], 201);
-});
+Route::post("/add-to-cart", [Cart::class, 'addToCart']);
 ?>
