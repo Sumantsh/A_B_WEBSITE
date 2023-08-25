@@ -41,6 +41,6 @@
 <script src="{{ asset('js/script.js') }}"></script>
 <script src="{{ asset('js/swiperscript.js') }}"></script>
 <script src="{{ asset('js/cartwindow.js') }}"></script>
-
+@livewireScripts
 </body>
 </html>
