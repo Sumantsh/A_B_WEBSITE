@@ -1,0 +1,29 @@
+[
+    {
+        "prd_name": "ED Sample Pack 3",
+        "prd_dis": "ED Sample Pack",
+        "prd_image": "img/products/Viagra.jpg",
+        "prd_min_price": "45.56",
+        "prd_max_price": "45.56",
+        "prd_qty": "1",
+        "prd_mg": "1"
+    },
+    {
+        "prd_name": "ED Sample Pack 2",
+        "prd_dis": "ED Sample Pack",
+        "prd_image": "img/products/Viagra.jpg",
+        "prd_min_price": "60.76",
+        "prd_max_price": "60.76",
+        "prd_qty": "1",
+        "prd_mg": "1"
+    },
+    {
+        "prd_name": "ED Sample Pack 1",
+        "prd_dis": "ED Sample Pack",
+        "prd_image": "img/products/Viagra.jpg",
+        "prd_min_price": "46.16",
+        "prd_max_price": "46.16",
+        "prd_qty": "1",
+        "prd_mg": "1"
+    }
+]
