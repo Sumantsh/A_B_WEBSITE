@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Livewire\Cart;
+use App\Models\SampleProducts;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,10 +43,6 @@ Route::get('shipping', function () {
     return view('shipping');
 });
 
-Route::get('/sample', function () {
-    return view('sample');
-});
-
 Route::get('/policies', function () {
     return view('policies');
 });
@@ -62,7 +59,12 @@ Route::get('singleproduct', function(Request $request)  {
     ]);
 });
 
-
+Route::get("/sample", function() {
+    $products = SampleProducts::all();
+    return view('sample', [
+        'products' => $products
+    ]);
+});
 
 Route::get('/featch', function () {
     $post = DB::table('products')->get();
@@ -87,6 +89,26 @@ Route::get("/add", function() {
             "prd_qty" => $item['prd_qty'],
             "prd_mg" => $item['prd_mg'],
             "prd_details" => $item['prd_details']
+        ]);
+    }
+
+    echo "Okay";
+});
+
+
+Route::get("/add-sample", function() {
+    $jsonFile = file_get_contents(storage_path("json/sample_product.json"));
+    $data = json_decode($jsonFile, true);
+
+    foreach ($data as $item) {
+        SampleProducts::create([
+            'prd_name' => $item['prd_name'],
+            'prd_dis' => $item['prd_dis'],
+            "prd_image" => $item['prd_image'],
+            'prd_min_price' => $item['prd_min_price'],
+            "prd_max_price" => $item['prd_max_price'],
+            "prd_qty" => $item['prd_qty'],
+            "prd_mg" => $item['prd_mg'],
         ]);
     }
 
