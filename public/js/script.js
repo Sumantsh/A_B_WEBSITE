@@ -72,9 +72,12 @@ if(window.location.pathname === "/singleproduct") {
 
 
 
+
+
 const uid = () => {
     return Date.now().toString(36) + Math.floor(Math.pow(10, 12) + Math.random() * 9*Math.pow(10, 12)).toString(36);
 }
+
 
 if(window.location.pathname === "/sample") {
     addToCartSample.addEventListener("click", async (e) => {
