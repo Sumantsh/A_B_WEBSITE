@@ -25,7 +25,7 @@
               <p>${{$product['prd_min_price']}}</p>
             </div>
 
-            <button data-productID="{{ $product->id }}"  id="addtocart" wire:click="toggleCart" >Add to Cart</button>
+            <button data-productID="{{ $product->id }}" data-productPrice="{{ $product['prd_min_price'] }}"  id="addtocartsample" wire:click="toggleCart" >Add to Cart</button>
             </div>
           @endforeach
         </div>
