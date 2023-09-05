@@ -54,6 +54,7 @@ addToCartBtn.addEventListener("click", async (e) => {
         redirect: "follow"
     });
     const json = await response.json();
+    console.log(json)
     if(json.msg == "Product added to the cart") {
         Livewire.emit('updateComponent');
     }
@@ -71,7 +72,7 @@ function updateQtyField(e) {
     }
 }
 
-document.addEventListener('livewire:load', function () {
+document.addEventListener('livewire:load',  function () {
     let hookExecutionCount = 0;
     Livewire.hook('element.initialized', (el, component) => {
         if(hookExecutionCount < 1) {
