@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Product;
+use App\Models\SampleProducts;
 use Illuminate\Http\Request;
 use Livewire\Component;
 
@@ -30,7 +31,12 @@ class Cart extends Component
 
     public function addToCart(Request $request) {
         $cartdata = $request->json()->all();
-        $product = Product::find($cartdata['prodID']);
+        $product = [];
+        if($cartdata['sample']) {
+            $product = SampleProducts::find($cartdata['prodID']);
+        } else {
+            $product = Product::find($cartdata['prodID']);
+        }
         $prdImage = $product['prd_image'];
         $prdName = $product['prd_name'];
         session()->push("cartdata", [
