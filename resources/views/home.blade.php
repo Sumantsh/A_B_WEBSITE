@@ -39,10 +39,113 @@
                 <div>
                     <div style="display: flex; flex-direction: column; align-items: center;">
                         <img src="{{ asset('/img/Screenshot_2022-10-02_at_11.52.57_PM-removebg-preview.png') }}"
-                            width="90%" alt="">
+                            width="80%" alt="">
+                        <div
+                            style="width: 50%; height: 1px; margin: 2% 0px; background-color: rgb(0, 0, 0); text-align: center;">
+                        </div>
+
+                        <div class="TESTIMONIALS">
+
+                            <h2>TESTIMONIALS</h2>
+                            <div class="testomonials_wrapper">
+                                <div class="review">
+                                    <li>
+                                        Highest quality at a lowest price I would consider sane. You know how to win clientsRa
+                                    </li>
+                                </div>
+                                <div class="client">
+                                    <p>Richard 28year</p>
+                                </div>
+                                <div class="review">
+                                    <li>
+                                        Highest quality at a lowest price I would consider sane. You know how to win clientsRa
+                                    </li>
+                                </div>
+                                <div class="client">
+                                    <p>Richard 28year</p>
+                                </div>
+                                <div class="review">
+                                    <li>
+                                        Highest quality at a lowest price I would consider sane. You know how to win clientsRa
+                                    </li>
+                                </div>
+                                <div class="client">
+                                    <p>Richard 28year</p>
+                                </div>
+                                <div class="review">
+                                    <li>
+                                        Highest quality at a lowest price I would consider sane. You know how to win clientsRa
+                                    </li>
+                                </div>
+                                <div class="client">
+                                    <p>Richard 28year</p>
+                                </div>
+                                <div class="review">
+                                    <li>
+                                        Highest quality at a lowest price I would consider sane. You know how to win clientsRa
+                                    </li>
+                                </div>
+                                <div class="client">
+                                    <p>Richard 28year</p>
+                                </div>
+                                <div class="review">
+                                    <li>
+                                        Highest quality at a lowest price I would consider sane. You know how to win clientsRa
+                                    </li>
+                                </div>
+                                <div class="client">
+                                    <p>Richard 28year</p>
+                                </div>
+                                <div class="review">
+                                    <li>
+                                        Highest quality at a lowest price I would consider sane. You know how to win clientsRa
+                                    </li>
+                                </div>
+                                <div class="client">
+                                    <p>Richard 28year</p>
+                                </div>
+                                <div class="review">
+                                    <li>
+                                        Highest quality at a lowest price I would consider sane. You know how to win clientsRa
+                                    </li>
+                                </div>
+                                <div class="client">
+                                    <p>Richard 28year</p>
+                                </div>
+                                <div class="review">
+                                    <li>
+                                        Highest quality at a lowest price I would consider sane. You know how to win clientsRa
+                                    </li>
+                                </div>
+                                <div class="client">
+                                    <p>Richard 28year</p>
+                                </div>
+                                <div class="review">
+                                    <li>
+                                        Highest quality at a lowest price I would consider sane. You know how to win clientsRa
+                                    </li>
+                                </div>
+                                <div class="client">
+                                    <p>Richard 28year</p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div
+                        style="width: 50%; height: 1px; margin: 4% 0px; background-color: rgb(0, 0, 0); text-align: center;">
+                    </div>
+
+                        <div class="conatctus">
+                            <a class="contact" href="contact">
+                                <img src="{{asset ('img/contact.png')}}" alt="">
+                            </a>
+                        </div>
+
                         <div
                             style="width: 50%; height: 1px; margin: 7% 0px; background-color: rgb(0, 0, 0); text-align: center;">
                         </div>
+
                         <img src="{{ asset('img/s-l400.jpeg') }}" width="70%" alt="">
                         <div
                             style="width: 50%; height: 1px; margin: 10% 0px; background-color: rgb(0, 0, 0); text-align: center;">
@@ -55,7 +158,7 @@
                     </div>
 
 
-                    <form style="margin-top: 4%;">
+                    <form style="margin-top: 4%; background:red;width:80%:margin:">
                         <div>
                             <label style="font-size: 14px;  font-family: sans-serif;  font-weight: 400;" for="username">
                                 Username or Email Address
