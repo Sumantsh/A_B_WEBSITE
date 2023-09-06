@@ -2,7 +2,7 @@
 
 
   
-</body>
+
 
     <section id="samplesection" >
 

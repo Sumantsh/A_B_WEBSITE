@@ -16,7 +16,7 @@
 <body>
   <header id="header">
     <div id="topsecwrapper">
-    <div id="topsec">
+     <div id="topsec">
 
         <div class="first">
             <h2 class="time">24/7 Customer Support </h2>
@@ -37,7 +37,9 @@
 
 
         <div class="scnd" >
-          <a href="/"> <img src="{{ asset ('/img/logo.png')}}"  alt=""> </a>
+          <a href="/"> 
+            <img src="{{ asset ('/img/logo.png')}}"  alt=""> 
+          </a>
 
           <div id="menubar">
             <i class="fa-solid fa-align-justify menuline" ></i>
@@ -47,7 +49,7 @@
         </div>
 
         <div class="third">
-            <img src="{{ asset ('/img/visa.png')}}" width="45%" alt="">
+            <img src="{{ asset ('/img/visa.png')}}" alt="">
             <div id="cart">
                 <a href="">view plus</a>
                 <a href="">track order</a>
@@ -55,15 +57,15 @@
             </div>
         </div>
 
-    </div>
+     </div>
 
   </div>
 
 
     <div id="serchbar">
       <div id="wrapper">
-      <input type="text" name="search" id="search" placeholder="Search Products..."><span><button id="searchbtn" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button></span>
-    </div>
+       <input type="text" name="search" id="search" placeholder="Search Products..."><span><button id="searchbtn" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button></span>
+      </div>
     </div>
 
     <nav id="nav">
