@@ -1,7 +1,7 @@
 const mgSelect = document.querySelector("#pillsmg");
 const pillSelect = document.querySelector("#pillsquantity");
 const addToCartBtn = document.querySelector("#addtocart");
-const addToCartSample = document.querySelector("#addtocartsample");
+const addToCartSample = document.querySelectorAll("#addtocartsample");
 const qty = document.querySelector("#showvalue");
 const priceMin = document.querySelector("#productpricemin");
 
@@ -9,6 +9,25 @@ var csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('
 
 const increaseQtyFieldBtn = document.querySelector("#plus");
 const decreaseQtyFieldBtn = document.querySelector("#minus");
+
+
+const string = "1.20*1.50*1.27*1.15*1.03*1.23 1.20*1.27*1.15*1.50*1.03*1.23 1.20*1.50*1.27*1.15*1.03*1.23 1.20*1.50*1.27*1.15*1.03*1.23 1.20*1.27*1.15*1.50*1.03*1.23 1.20*1.27*1.15*3.17*4.73*1.23";
+const arrayOfMgs = string.split(" ");
+
+let productPriceMap = new Map();
+// for(let i = 0; i < mgSelect.options.length - 1; i++) {
+//         productPriceMap.set(mgSelect.options[i+1].value, arrayOfMgs[i].split("*").map((ele, index) => {
+//             return {
+//                 pills: pillSelect.options[index+1].value,
+//                 perPill: ele
+//             }
+//         }));
+// }
+
+// console.log(productPriceMap);
+
+const priceDiv = document.querySelector(".blank");
+
 
 if(window.location.pathname === "/singleproduct") {
     mgSelect.addEventListener("click", updateButtonState);
@@ -19,6 +38,16 @@ if(window.location.pathname === "/singleproduct") {
             addToCartBtn.removeAttribute("disabled");
         } else {
             addToCartBtn.setAttribute("disabled", "");
+        }
+        if(productPriceMap.has(mgSelect.options[mgSelect.selectedIndex].value)) {
+            productPriceMap.get(mgSelect.options[mgSelect.selectedIndex].value).map((ele, index) => {
+                if(Number(pillSelect.options[pillSelect.selectedIndex].value) === Number(ele.pills)) {    
+                    document.querySelector(".blank").innerHTML = Number(ele.perPill) * Number(ele.pills); 
+                }
+            });
+        }
+        if (Number(mgSelect.options[mgSelect.selectedIndex].value) === 0 || Number(pillSelect.options[pillSelect.selectedIndex].value) === 0) {
+            document.querySelector(".blank").innerHTML = 0; 
         }
     }
 
@@ -35,7 +64,8 @@ if(window.location.pathname === "/singleproduct") {
             mg: mgValue,
             pills: pillValue,
             qty: Number(qty.textContent),
-            price: price
+            price: price,
+            sample: false
         }
     
         const response = await fetch("/add-to-cart", {
@@ -80,32 +110,36 @@ const uid = () => {
 
 
 if(window.location.pathname === "/sample") {
-    addToCartSample.addEventListener("click", async (e) => {
-        e.preventDefault();
-        const data = {
-            UID: uid(),
-            prodID: addToCartSample.dataset.productid,
-            mg: 1,
-            pills: 1,
-            qty: 1,
-            price: addToCartSample.dataset.productprice
-        }
-    
-        const response = await fetch("/add-to-cart", {
-            method: "POST",
-            body: JSON.stringify(data),
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-                'X-CSRF_TOKEN': csrfToken
-            },
-            redirect: "follow"
+
+    for(let i = 0; i < addToCartSample.length; i++) {
+        addToCartSample[i].addEventListener("click", async (e) => {
+            e.preventDefault();
+            const data = {
+                UID: uid(),
+                prodID: addToCartSample[i].dataset.productid,
+                mg: 1,
+                pills: 1,
+                qty: 1,
+                price: addToCartSample[i].dataset.productprice,
+                sample: true
+            }
+        
+            const response = await fetch("/add-to-cart", {
+                method: "POST",
+                body: JSON.stringify(data),
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                    'X-CSRF_TOKEN': csrfToken
+                },
+                redirect: "follow"
+            });
+            const json = await response.json();
+            if(json.msg == "Product added to the cart") {
+                Livewire.emit('updateComponent');
+            }
         });
-        const json = await response.json();
-        if(json.msg == "Product added to the cart") {
-            Livewire.emit('updateComponent');
-        }
-    });
+    }
 }
 
 
