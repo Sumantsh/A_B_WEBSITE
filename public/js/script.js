@@ -47,7 +47,7 @@ if(window.location.pathname === "/singleproduct") {
             });
         }
         if (Number(mgSelect.options[mgSelect.selectedIndex].value) === 0 || Number(pillSelect.options[pillSelect.selectedIndex].value) === 0) {
-            document.querySelector(".blank").innerHTML = 0; 
+            document.querySelector(".blank").innerHTML = priceMin.textContent; 
         }
     }
 

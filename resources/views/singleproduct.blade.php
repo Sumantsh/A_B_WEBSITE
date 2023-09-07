@@ -50,6 +50,9 @@
                 </div>
             </div>
 
+        <div class="amount_show">$<span class="blank"></span></div>
+
+
             <div id="addcart">
                 <div class="addition">
                     <button id="minus" value="-1">-</button>
@@ -65,7 +68,6 @@
 
         </div>
 
-        <div class="blank"></div>
 
     </div>
 
