@@ -18,7 +18,8 @@ class Product extends Model
         "prd_about",
         "prd_qty",
         "prd_mg",
-        "prd_details"
+        "prd_details",
+        "price_per_pill"
     ];
 }
 

@@ -11,18 +11,7 @@ const increaseQtyFieldBtn = document.querySelector("#plus");
 const decreaseQtyFieldBtn = document.querySelector("#minus");
 
 
-const string = "1.20*1.50*1.27*1.15*1.03*1.23 1.20*1.27*1.15*1.50*1.03*1.23 1.20*1.50*1.27*1.15*1.03*1.23 1.20*1.50*1.27*1.15*1.03*1.23 1.20*1.27*1.15*1.50*1.03*1.23 1.20*1.27*1.15*3.17*4.73*1.23";
-const arrayOfMgs = string.split(" ");
 
-let productPriceMap = new Map();
-// for(let i = 0; i < mgSelect.options.length - 1; i++) {
-//         productPriceMap.set(mgSelect.options[i+1].value, arrayOfMgs[i].split("*").map((ele, index) => {
-//             return {
-//                 pills: pillSelect.options[index+1].value,
-//                 perPill: ele
-//             }
-//         }));
-// }
 
 // console.log(productPriceMap);
 
@@ -30,6 +19,18 @@ const priceDiv = document.querySelector(".blank");
 
 
 if(window.location.pathname === "/singleproduct") {
+    let productPriceMap = new Map();
+    const string = document.querySelector("#productinfo").dataset.perpillprice;
+    const arrayOfMgs = string.split(" ");
+    for(let i = 0; i < mgSelect.options.length - 1; i++) {
+        productPriceMap.set(mgSelect.options[i+1].value, arrayOfMgs[i].split("*").map((ele, index) => {
+            return {
+                pills: pillSelect.options[index+1].value,
+                perPill: ele
+            }
+        }));
+    }
+    console.log(productPriceMap);
     mgSelect.addEventListener("click", updateButtonState);
     pillSelect.addEventListener("click", updateButtonState);
 
@@ -47,7 +48,7 @@ if(window.location.pathname === "/singleproduct") {
             });
         }
         if (Number(mgSelect.options[mgSelect.selectedIndex].value) === 0 || Number(pillSelect.options[pillSelect.selectedIndex].value) === 0) {
-            document.querySelector(".blank").innerHTML = 0; 
+            document.querySelector(".blank").innerHTML = priceMin.textContent; 
         }
     }
 

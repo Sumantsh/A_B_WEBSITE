@@ -26,6 +26,7 @@ return new class extends Migration
             $table->string("prd_qty");
             $table->string("prd_mg");
             $table->text("prd_details");
+            $table->string("price_per_pill");
         });
     }
 

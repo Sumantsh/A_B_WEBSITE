@@ -88,7 +88,8 @@ Route::get("/add", function() {
             "prd_about" => $item['prd_about'],
             "prd_qty" => $item['prd_qty'],
             "prd_mg" => $item['prd_mg'],
-            "prd_details" => $item['prd_details']
+            "prd_details" => $item['prd_details'],
+            "price_per_pill" => $item['price_per_pill']
         ]);
     }
 
