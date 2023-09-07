@@ -9,7 +9,7 @@
             <i class="fa-solid fa-magnifying-glass" id="search"></i>
         </div>
 
-        <div id="productinfo">
+        <div id="productinfo" data-perpillprice="{{ $product->price_per_pill }}">
             <div class="productname">
                 <h2 style="font-size: 24px; font-weight: 600; font-family: 'Poppins', sans-serif; letter-spacing: 1px; color:#333;">
                     {{$product->prd_name}}</h2>
