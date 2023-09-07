@@ -1,4 +1,4 @@
-@include('header')
+    @include('header')
 <section id="section">
 
     <div class="swiper-container">
@@ -8,15 +8,15 @@
             <div class="swiper-wrapper">
 
                 <div class="slider swiper-slide slider1 ">
-                    <img src="{{ asset('img/slider/one.jpg') }}" width="100%" alt="">
+                    <img src="{{ asset('img/slider/new/1.jpg') }}" width="100%" alt="">
                 </div>
 
                 <div class="slider swiper-slide slider2 ">
-                    <img src="{{ asset('img/slider/three.jpg') }}" width="100%" alt="">
+                    <img src="{{ asset('img/slider/new/2.jpg') }}" width="100%" alt="">
                 </div>
 
                 <div class="slider swiper-slide slider3 ">
-                    <img src="{{ asset('/img/slider/two (1).jpg') }}" width="100%" alt="">
+                    <img src="{{ asset('/img/slider/new/3.jpg') }}" width="100%" alt="">
                 </div>
 
             </div>
@@ -157,8 +157,10 @@
                         <p style="font-family: robotsan;">login/register</p>
                     </div>
 
+
                     <div class="left_form_wrapper">
                     <form style="margin-top: 4%;width:80%;">
+
                         <div>
                             <label style="font-size: 14px;  font-family: sans-serif;  font-weight: 400;" for="username">
                                 Username or Email Address
@@ -198,7 +200,7 @@
                     </div>
 
                     <a href="index.html" style="width: 90%;">
-                        <img src="{{ asset('img/cropped-EDLifecare-logo.png') }}" width="90%" alt="">
+                        <img style="" src="{{ asset('img/cropped-EDLifecare-logo.png') }}" width="80%" alt="">
                     </a>
                 </div>
 
