@@ -158,7 +158,9 @@
                     </div>
 
 
-                    <form style="margin-top: 4%;width:80%:margin:">
+                    <div class="left_form_wrapper">
+                    <form style="margin-top: 4%;width:80%;">
+
                         <div>
                             <label style="font-size: 14px;  font-family: sans-serif;  font-weight: 400;" for="username">
                                 Username or Email Address
@@ -190,7 +192,8 @@
                             <a href="#" id="lost" style="color:rgba(0 0 0 /.7); font-size: 12px;">Lost your
                                 password?<a><a href="" style="display: inline;">|Register</a>
                         </div>
-                    </form>
+                        </form>
+                    </div>
 
                     <div
                         style="width: 50%; height: 1px; margin: 10% 0px; background-color: rgb(0, 0, 0); text-align: center;">

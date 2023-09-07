@@ -509,6 +509,11 @@ z-index: 1;
     /* display: none; */
 }
 
+.left_form_wrapper  {
+    display: flex;
+    justify-content: center;
+}
+
 
 
 
