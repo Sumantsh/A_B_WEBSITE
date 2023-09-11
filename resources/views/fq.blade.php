@@ -1,3 +1,7 @@
+@php
+    $title = "FAQ PAGE";
+@endphp
+
 @include('header')
 
     <section id="fqsection" >
