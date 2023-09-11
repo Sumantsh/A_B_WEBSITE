@@ -1,3 +1,7 @@
+@php
+    $title = "Contact us";
+@endphp
+
 @include('header')
 
     <section id="contactsection" >

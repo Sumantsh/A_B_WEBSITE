@@ -1,4 +1,7 @@
-    @include('header')
+@php
+    $title="Edlifecare.com";
+@endphp
+@include('header')
 <section id="section">
 
     <div class="swiper-container">
@@ -138,7 +141,7 @@
 
                         <div class="conatctus">
                             <a class="contact" href="contact">
-                                <img src="{{asset ('img/contact.png')}}" alt="">
+                                <img src="{{asset ('img/client_support.jpg')}}" alt="">
                             </a>
                         </div>
 

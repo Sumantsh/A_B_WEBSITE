@@ -1,9 +1,8 @@
+@php
+    $title = "Free Sample"
+@endphp
+
 @include('header')
-
-
-  
-
-
     <section id="samplesection" >
 
 

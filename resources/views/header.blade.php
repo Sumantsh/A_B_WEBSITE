@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="{{ asset ('css/style.css')}}">
     <link rel="stylesheet" href="{{ asset ('css/mediaquery.css')}}">
     <link rel="stylesheet" href="{{ asset ('css/swiperstyle.css')}}">
-    <title>Document</title>
+    <title>{{$title}}</title>
 </head>
 
 <body>

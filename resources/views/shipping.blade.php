@@ -1,3 +1,7 @@
+@php
+    $title = "Shipping Page";
+@endphp
+
 @include('header')
 
     <section id="shippingsection" >

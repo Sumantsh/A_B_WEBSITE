@@ -1,4 +1,9 @@
-  @include("header")
+ 
+ @php
+     $title ="About us";
+ @endphp
+
+ @include("header")
     <section id="section">
 
       <div id="aboutsection">

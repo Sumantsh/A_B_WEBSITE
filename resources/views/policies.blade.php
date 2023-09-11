@@ -1,3 +1,8 @@
+
+@php
+    $title = "Plicies";
+@endphp
+
 @include('header')
 
     <section id="policiessection">

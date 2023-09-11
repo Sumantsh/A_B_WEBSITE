@@ -1,3 +1,7 @@
+@php
+    $title = $product->prd_name;
+@endphp
+
 @include('header')
 
 <section id="section">
